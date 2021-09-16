@@ -1,15 +1,13 @@
 nav {
-    background-color: lightskyblue;
-    
+    background-color: lightskyblue;   
 }
-
 nav > a {
-    all:unset;
     font-family: sans-serif;
     display:inline-block;
     color: black;
     text-transform: uppercase;
     padding: 10px 15px;
+    text-decoration: none;
 }
 nav > a:hover {
     background-color: gainsboro;
