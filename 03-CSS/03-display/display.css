@@ -2,10 +2,9 @@ nav {
     background-color: lightskyblue;
     
 }
-a {
-    all:initial;
-}
+
 nav > a {
+    all:unset;
     font-family: sans-serif;
     display:inline-block;
     color: black;
