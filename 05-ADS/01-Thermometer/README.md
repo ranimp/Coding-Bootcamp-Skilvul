@@ -1,3 +1,4 @@
+```html
 INPUT suhu
 INPUT jenis
 
@@ -10,3 +11,4 @@ ELSE IF jenis IS "fahrenheit" THEN
 ELSE
   DISPLAY suhu
 ENDIF
+```

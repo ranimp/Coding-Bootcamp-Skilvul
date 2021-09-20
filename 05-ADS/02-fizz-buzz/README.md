@@ -1,3 +1,5 @@
+```html
+
 INPUT fizzbuzz
 
 FOR fizzbuzz IN range(20):
@@ -11,3 +13,4 @@ FOR fizzbuzz IN range(20):
          DISPLAY fizzbuzz
     ENDIF
 ENDFOR
+```

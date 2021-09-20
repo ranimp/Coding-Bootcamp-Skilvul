@@ -1,3 +1,5 @@
+```html
+
 start -> arahkan untuk memulai string dari depan
 end -> arahkan untuk memulai string dari belakang
 
@@ -11,3 +13,4 @@ FUNCTION cekpalindrom (string,start,end) :
         RETURN False
     ENDIF
 END
+```

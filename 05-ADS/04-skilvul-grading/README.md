@@ -1,3 +1,5 @@
+```html
+
 INPUT nilaiAwal
 
 IF nilaiAwal >= 68  THEN
@@ -9,3 +11,4 @@ IF nilaiAwal >= 68  THEN
 ELSE
     RETURN nilaiAwal   
 ENDIF
+```
