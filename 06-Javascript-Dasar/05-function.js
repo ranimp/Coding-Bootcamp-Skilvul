@@ -151,4 +151,4 @@ function firstNonRepeatedChar(word) {
         return word;
     }
 }
-console.log(firstNonRepeatedChar('halo'))
+console.log(firstNonRepeatedChar('abba'))

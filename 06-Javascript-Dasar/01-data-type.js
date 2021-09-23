@@ -11,8 +11,8 @@ console.log(upperCase.toUpperCase());
 /// Soal - 02
 /// Gunakan built-in function yang dimiliki oleh Javascript, agar kita mengetahui apa tipe data yang dimiliki oleh variable age
 const ageInDays = age;
-// let cid = ageInDays * 365; 
 console.log(typeof ageInDays);
+// let cid = ageInDays * 365; 
 // console.log(cid);
 
 /// Soal - 03
