@@ -1,53 +1,63 @@
 /// Soal - 01
 /// Kamu diminta untuk membuat sebuah perulangan menggunakan for loop, untuk mencetak angka prima dari 1 ~ 100
 // EDIT HERE
-let samping = ""
-for (let i = 2; i <= 100; i++) {
-    let pembagi = 0
-    for (let j = 1; j <= i; j++) {
-        if (i % j === 0) {
+let hasil = ""
+for (let angka = 2; angka <= 100; angka++) {
+    let pembagi = 0    
+    for (let ulang = 1; ulang <= angka; ulang++) {
+        if (angka % ulang === 0) {
             pembagi += 1
        }
     }
     if (pembagi === 2) {
-        samping = samping + " " + i
+        hasil += angka + ", "
     } 
 }
-console.log(samping)
+console.log(hasil)
 
 /// Soal - 02
 /// Kamu diminta untuk menemukan bilangan prima ke-50, temukan bilangan tersebut menggunakan while loop
 
 let primeCounter = 0;
-let fiftiethPrime;
+let fiftiethPrime = 2;
 
 /// EDIT HERE - 229
 let max_num = 1000
-let i = 2
-while(i <= max_num){
+
+while(fiftiethPrime <= max_num){
     let pembagi = 0
-    let j = 1
-    while(j <= i){
-        if (i % j === 0) {
+    let ulang = 1
+    while(ulang <= fiftiethPrime){
+        if (fiftiethPrime % ulang === 0) {
             pembagi += 1
         }
-        j++
+        ulang++
     }
     if (pembagi === 2) {
         primeCounter++
         if(primeCounter == 50){
-            fiftiethPrime = i
             console.log(fiftiethPrime)
             break
         }
     } 
-    i++
+    fiftiethPrime++
 }
 
 
-// /// Soal - 03
-// /// Kamu diminta untuk menemukan bilangan ganjil ke-50, temukan bilangan tersebut menggunakan do while loop
+// / Soal - 03
+// / Kamu diminta untuk menemukan bilangan ganjil ke-50, temukan bilangan tersebut menggunakan do while loop
 
-// let oddCounter = 0;
-// const fiftiethOdd;
-// do { .... } while (....)
+let oddCounter = 0;
+let fiftiethOdd = 1;
+let max = 1000;
+
+do {
+    if (fiftiethOdd % 2 === 1) {
+        oddCounter++
+        if(oddCounter === 50){
+            console.log(fiftiethOdd)
+            break
+        }
+    }
+    fiftiethOdd++
+} while (fiftiethOdd <= max)

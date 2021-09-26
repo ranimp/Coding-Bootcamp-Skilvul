@@ -17,52 +17,24 @@
 
 function taxCalc(salary) {
     let pajak = ""
-    if (typeof salary === 'number'){
-        if (salary < 5000000) {
-            pajak = salary * 0
-            return "pajak sebesar Rp" + pajak
-        }
-        else if (salary >= 5000000 && salary < 10000000) {
-            pajak = salary * 5/100
-            return "pajak sebesar Rp" + pajak
-        }
-        else if (salary >= 10000000 && salary < 20000000) {
-            pajak = salary * 10/100
-            return "pajak sebesar Rp" + pajak
-        }
-        else {
-            pajak = salary * 20/100
-            return "pajak sebesar Rp" + pajak
-        }
+    if (salary < 5000000) {
+        pajak = salary * 0
+        return "pajak sebesar Rp" + pajak
     }
-    else if(typeof salary === 'string'){
-        if (!isNaN(salary) && salary !== 0) {
-            if (salary < 5000000) {
-            pajak = salary * 0
-            return "pajak sebesar Rp" + pajak
-            }
-            else if (salary >= 5000000 && salary < 10000000) {
-                pajak = salary * 5/100
-                return "pajak sebesar Rp" + pajak
-            }
-            else if (salary >= 10000000 && salary < 20000000) {
-                pajak = salary * 10/100
-                return "pajak sebesar Rp" + pajak
-            }
-            else {
-                pajak = salary * 20/100
-                return "pajak sebesar Rp" + pajak
-            }
-            } 
-        else {
-             return console.log("mohon masukkan salary dengan benar")
-        }
+    else if (salary >= 5000000 && salary < 10000000) {
+        pajak = salary * 5/100
+        return "pajak sebesar Rp" + pajak
+    }
+    else if (salary >= 10000000 && salary < 20000000) {
+        pajak = salary * 10/100
+        return "pajak sebesar Rp" + pajak
     }
     else {
-        return console.log("mohon masukkan salary dengan benar")
+        pajak = salary * 20/100
+        return "pajak sebesar Rp" + pajak
     }
 }
-console.log(taxCalc(5000000))
+console.log(taxCalc("5000000"))
 
 /// Soal - 02
 /// BMI merupakan sebuah perhitungan yang mana dapat menunjukan apakah seseorang itu masuk dalam kategori obesitas atau tidak. Kamu diminta untuk membuat sebuah fungsi untuk menghitung BMI seseorang serta dapat menentukan apakah orang tersebut obesitas atau tidak.
@@ -84,26 +56,21 @@ console.log(taxCalc(5000000))
 
 /// EDIT HERE
 function checkBMI (height, weight) {
-    if (typeof height == 'number' && typeof weight == 'number') {
-        const BMI = (weight/(height**2)) * 10000
-        if (BMI < 18.5) {
-            return "Nilai indikasi BMI kamu : " + BMI + " = under weight"
-        }
-        else if (BMI > 18.5 && BMI < 24.9) {
-            return "Nilai indikasi BMI kamu : " + BMI + " = normal"
-        }
-        else if (BMI > 25 && BMI < 29.9) {
-            return "Nilai indikasi BMI kamu : " + BMI + " = over weight"
-        }
-        else if (BMI > 30 && BMI < 34.9) {
-            return "Nilai indikasi BMI kamu : " + BMI + " = obese"
-        }
-        else {
-            return "Nilai indikasi BMI kamu : " + BMI + " = extremly obese"
-        }
-    } 
+    const BMI = (weight/(height**2)) * 10000
+    if (BMI < 18.5) {
+        return "Nilai indikasi BMI kamu : " + BMI + " = under weight"
+    }
+    else if (BMI > 18.5 && BMI < 24.9) {
+        return "Nilai indikasi BMI kamu : " + BMI + " = normal"
+    }
+    else if (BMI > 25 && BMI < 29.9) {
+        return "Nilai indikasi BMI kamu : " + BMI + " = over weight"
+    }
+    else if (BMI > 30 && BMI < 34.9) {
+        return "Nilai indikasi BMI kamu : " + BMI + " = obese"
+    }
     else {
-        console.log("harap masukkan berat badan dalam kg, tinggi badan dalam cm")
+        return "Nilai indikasi BMI kamu : " + BMI + " = extremly obese"
     }
 }
 console.log(checkBMI (160, 80))
@@ -143,12 +110,20 @@ console.log((convToUpperCase('hello worldwide')))
 // / (String) huruf yang pertama kali tidak ada kembarannya
 
 /// EDIT HERE
-function firstNonRepeatedChar(word) {
-    let kata = word.split(' ')
+function firstNonRepeatedCharacter(string) {
+    let kata = string.split(' ')
     if (kata.length > 1) {
         return "kata tidak boleh dipisah"
     } else {
-        return word;
+        for (let i = 0; i < string.length; i++) {
+            let c = string.charAt(i);
+            if (string.indexOf(c) == i && string.indexOf(c, i + 1) == -1) {
+                return c;
+            }
+        }
+        return '';
     }
 }
-console.log(firstNonRepeatedChar('abba'))
+
+let word = 'wooohoowh';
+console.log(firstNonRepeatedCharacter(word));
