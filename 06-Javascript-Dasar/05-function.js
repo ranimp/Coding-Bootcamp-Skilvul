@@ -34,7 +34,7 @@ function taxCalc(salary) {
         return "pajak sebesar Rp" + pajak
     }
 }
-console.log(taxCalc("5000000"))
+console.log(taxCalc("20000000"))
 
 /// Soal - 02
 /// BMI merupakan sebuah perhitungan yang mana dapat menunjukan apakah seseorang itu masuk dalam kategori obesitas atau tidak. Kamu diminta untuk membuat sebuah fungsi untuk menghitung BMI seseorang serta dapat menentukan apakah orang tersebut obesitas atau tidak.
@@ -125,5 +125,5 @@ function firstNonRepeatedCharacter(string) {
     }
 }
 
-let word = 'wooohoowh';
+let word = 'alloha';
 console.log(firstNonRepeatedCharacter(word));

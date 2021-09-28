@@ -21,7 +21,7 @@ console.log(hasil)
 let primeCounter = 0;
 let fiftiethPrime = 2;
 
-/// EDIT HERE - 229
+/// EDIT HERE
 let max_num = 1000
 
 while(fiftiethPrime <= max_num){
