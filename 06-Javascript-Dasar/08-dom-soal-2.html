@@ -155,25 +155,48 @@
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <script>
-      const elBtnComment = document.querySelector('#btn-comment')
-      elBtnComment.addEventListener('click', function() { 
+      const elBtnComment = document.querySelector('#btn-comment');
+      elBtnComment.addEventListener('click', (writeComment) => { 
         let tampilComment = document.getElementById("comment-form-section");
         tampilComment.classList.remove("d-none")
         elBtnComment.classList.add("d-none")
-      })
+      });
       const elCommentList = document.querySelector('#comment-list');  
       const elCommentSection = document.querySelector('#comment-form-section');
-      const elCommentForm = document.querySelector('#comment-form').addEventListener('submit', (event) => {event.preventDefault()});
-      const elInputUsername = document.querySelector('#input-username').value;
-      const elInputComment = document.querySelector('#input-comment').value;
-      const newList = document.createElement("li")
-      newList.setAttribute("class", "content")
-      elCommentForm.value("")
-      const elBtnSubmit = document.querySelector('#btn-submit');
-      const elBtnCancel = document.querySelector('#btn-cancel');
+      const elCommentForm = document.querySelector('#comment-form').addEventListener('submit', (submitComment) => {
+        event.preventDefault()
+        const elInputUsername = document.querySelector('#input-username').value;
+        const elInputComment = document.querySelector('#input-comment').value;
+        const newList = document.createElement("li")
+        newList.className = "list-group-item d-flex justify-content-between align-items-start";
+        const parent = document.getElementById("comment-list");
+        parent.prepend(newList);
       
+        const newDiv = document.createElement("div");
+        newDiv.className = "ms-2 me-auto";
+        const newContent = document.createTextNode(elInputComment);
+        newDiv.appendChild(newContent);
+        const parent2 = document.querySelector(".list-group-item");
+        parent2.appendChild(newDiv);
       
-      // EDIT HERE
+        const newDiv2 = document.createElement("div");
+        newDiv2.className = "fw-bold text-capitalize";
+        const newContent2 = document.createTextNode(elInputUsername);
+        newDiv2.appendChild(newContent2);
+        const parent3 = document.querySelector(".ms-2");
+        parent3.prepend(newDiv2);
+
+        let selesaiComment = document.getElementById("comment-form-section"); 
+        selesaiComment.classList.add("d-none");
+        elBtnComment.classList.remove("d-none");
+      });
+      
+      const elBtnSubmit = document.querySelector('#btn-submit').addEventListener("click", () => submitComment(event));
+      const elBtnCancel = document.querySelector('#btn-cancel').addEventListener("click", () => {
+        let cancelComment = document.getElementById("comment-form-section"); 
+        cancelComment.classList.add("d-none");
+        elBtnComment.classList.remove("d-none");
+      });
 
     </script>
   </body>
