@@ -38,8 +38,34 @@ console.log(printFirstName("Mariah Carey"));
     pendeklarasian variabel dengan menggunakan const, yang dimana jika variabel tidak atau belum terdeklarasi sebelum pemanggilan, maka
     akan muncul pesan error bahwa variabel tersebut belum terinisialisasi. 
 */
-console.log(salaryWithVar)
-console.log(salaryWithConst)
+// console.log(salaryWithVar)
+// console.log(salaryWithConst)
 
-var salaryWithVar = 15000000;
-const salaryWithConst = 15000000;
+// var salaryWithVar = 15000000;
+// const salaryWithConst = 15000000;
+
+
+/// PERTANYAAN BARU -UPDATE
+/// Soal - 01
+/// Kita sudah belajar mengenai variable scope yang dimiliki oleh Javascript
+/// dan kamu diminta untuk merangkum tentang:
+/// - ada berapa banyak jumlah variable scope pada Javascript?
+/// - jelaskan secara singkat setiap variable scope yang dimiliki oleh Javascript
+/// - buatlah implementasi sederhana dari tiap-tiap variable scope yang dimiliki oleh Javascript
+
+/// WRITE YOUR ANALYSIS HERE
+/*
+- ada 2, yaitu global variable dan local variable
+- Global variables adalah variabel yang dideklarasikan di luar blok. Local variables adalah variabel yang dideklarasikan di dalam suatu blok bisa berupa function-scoped atau block-scoped.
+*/
+let globalLuar = "Variabel Global";
+
+function fungsi(){
+    let lokal = "Variabel Lokal";
+    console.log(globalLuar + " bisa diakses di dalam fungsi");
+    console.log(lokal + " hanya bisa diakses di dalam fungsi");
+}
+
+fungsi();
+console.log(globalLuar + " juga bisa diakses di luar fungsi");
+console.log(lokal); // tidak bisa diakses di luar fungsi
