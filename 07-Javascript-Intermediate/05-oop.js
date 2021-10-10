@@ -37,110 +37,130 @@
 
 // soal - 03
 
-class Phone {
-    constructor(brand, storage, ram) {
-        this.brand = brand
-        this.storage = storage
-        this.ram = ram
-    }
-    getBrandName(){
-        return this.brand
-    }
-    setBrandName(newBrand){
-        return this.brand = newBrand
-    }
-    printSpecification(){
-        return `Ponsel ini memiliki storage: ${this.storage} dan ram: ${this.ram}`
-    }
-    setSpecification(newStorage, newRam){
-        this.storage = newStorage 
-        this.ram = newRam
-        return
-    }
-}
+// class Phone {
+//     constructor(brand, storage, ram) {
+//         this.brand = brand
+//         this.storage = storage
+//         this.ram = ram
+//     }
+//     getBrandName(){
+//         return this.brand
+//     }
+//     setBrandName(newBrand){
+//         return this.brand = newBrand
+//     }
+//     printSpecification(){
+//         return `Ponsel ini memiliki storage: ${this.storage} dan ram: ${this.ram}`
+//     }
+//     setSpecification(newStorage, newRam){
+//         this.storage = newStorage 
+//         this.ram = newRam
+//         return
+//     }
+// }
 
-const phone = new Phone("Skilvul Mobile co", 64, 4);
+// const phone = new Phone("Skilvul Mobile co", 64, 4);
 
-console.log(phone.getBrandName());
-phone.setBrandName("SM.co")
-console.log(phone.getBrandName());
+// console.log(phone.getBrandName());
+// phone.setBrandName("SM.co")
+// console.log(phone.getBrandName());
 
-console.log(phone.printSpecification());
-phone.setSpecification(32, 2);
-console.log(phone.printSpecification());
+// console.log(phone.printSpecification());
+// phone.setSpecification(32, 2);
+// console.log(phone.printSpecification());
 
 // soal-04
 
-// class Course {
-//     constructor(subject, quota, attendance) {
-//         this.subject = subject
-//         this.quota = quota
-//         this.attendance = attendance
-//     }
-//     getSubject(){
-//         return this.subject
-//     }
-//     getAttendance(){
-//         return this.attendance
-//     }
-//     decreaseQuota(){
-//         return this.quota -= 1
-//     }
-// }
-// class CourseOffering {
-//     constructor(course, grade, attendance){
-//         this.course = course
-//         this.grade = grade
-//         this.attendance = Course.attendance
-//     }
-// }
-// class Student {
-//     constructor(name, gender, courseOfferings) {
-//       super()
-//       this.name = name;
-//       this.gender = gender;
-//       this.courseOfferings = [CourseOffering];
-//     }
+class Course {
+    constructor(subject, quota, attendance) {
+        this.subject = subject
+        this.quota = quota
+        this.attendance = attendance || 0
+    }
+    getSubject(){
+        return this.subject
+    }
+    getAttendance(){
+        return this.attendance
+    }
+    decreaseQuota(){
+        return this.quota -= 1
+    }
+}
+class CourseOffering {
+    constructor(course){
+        this.course = course
+        this.grade = 0
+        this.attendance = 0
+    }
+}
+class Student{
+    constructor(name, gender) {
+      this.name = name;
+      this.gender = gender;
+      this.courseOfferings = [];
+    }
+
+    getIndexFromCourse(course) {
+        const indexOfCourse = this.courseOfferings.findIndex((courseOffering) => {
+          return courseOffering.course.getSubject() === course.getSubject();
+        });
+        return indexOfCourse;
+      }
     
-//     takeNewCourse(NewCourse) {
-//         return this.courseOfferings.push(NewCourse)
-//     }
+      takeNewCourse(course) {
+        // check if course already in array
+        const cekCourse = this.courseOfferings.find((courseOffering) => {
+          return courseOffering.course.getSubject() === course.getSubject();
+        });
     
-//     takeATest() {
-//         if (this.attendance >= this.attendance) {
-//             Math.floor(Math.random() * 101)
-//         }
-//         else {
-//             "Maaf absensi mu kurang"
-//         }
-//     }
+        // push the course into array if the course not exist yet
+        if (this.courseOfferings.length === 0 || !cekCourse) {
+          this.courseOfferings.push(new CourseOffering(course));
+          course.decreaseQuota();
+        }
+      }
+      
+      courseAttendance(course) {
+        const indexOfCourse = this.getIndexFromCourse(course);
+        if (indexOfCourse >= 0) {
+          this.courseOfferings[indexOfCourse].attendance++;
+        }
+      }
     
-//     courseAttendance(subject) {
-//         this.subject += 1
-//     }
-//   }
+      takeATest(course) {
+        const indexOfCourse = this.getIndexFromCourse(course);
+        if (indexOfCourse >= 0) {
+          if (this.courseOfferings[indexOfCourse].attendance >= course.getAttendance()) {
+            this.courseOfferings[indexOfCourse].grade = Math.floor(Math.random() * 100);
+          } else {
+            console.log("please fill your absent");
+          }
+        }
+      }
+    }
   
   
-// const biology = new Course("biology", 10, 3);
-// const physics = new Course("physics", 10, 2);
+const biology = new Course("biology", 10, 3);
+const physics = new Course("physics", 10, 2);
 
-// const johnWatson = new Student("john watson", "male");
+const johnWatson = new Student("john watson", "male");
 
-// johnWatson.takeNewCourse(biology);
-// johnWatson.takeNewCourse(physics);
+johnWatson.takeNewCourse(biology);
+johnWatson.takeNewCourse(physics);
 
-// johnWatson.courseAttendance(physics);
-// johnWatson.courseAttendance(physics);
-// johnWatson.courseAttendance(biology);
-// johnWatson.courseAttendance(physics);
+johnWatson.courseAttendance(physics);
+johnWatson.courseAttendance(physics);
+johnWatson.courseAttendance(biology);
+johnWatson.courseAttendance(physics);
 
-// console.log(biology.quota);
-// console.log(physics.quota);
+console.log(biology.quota);
+console.log(physics.quota);
 
-// johnWatson.takeATest(biology);
-// johnWatson.takeATest(physics);
+johnWatson.takeATest(biology);
+johnWatson.takeATest(physics);
 
-// console.log(johnWatson.courseOfferings);
+console.log(johnWatson.courseOfferings);
 
 
   
