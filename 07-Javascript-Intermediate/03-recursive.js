@@ -19,7 +19,7 @@ function countAboveAvg(arr, avg) {
     if(arr.length === 0) {
         return 0
     }
-    return (arr[0] >= avg) + countAboveAvg(arr.slice(1), avg);
+    return (arr[0] > avg) + countAboveAvg(arr.slice(1), avg);
 }
 
 const totalAboveAvg1 = countAboveAvg(arr1, avg1);
@@ -34,7 +34,7 @@ function searchInArray(array, nilai) {
     if(array.length === 0){
         return "angka tidak ditemukan"
     }else if(array[array.length -1] === nilai){
-        return "angka ditemukan pada index: " + (arr.length -1)
+        return "angka ditemukan pada index: " + (array.length-1)
     }
     return searchInArray(array.slice(0, -1), nilai)
 }
