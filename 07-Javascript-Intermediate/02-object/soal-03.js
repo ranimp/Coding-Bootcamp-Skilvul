@@ -1,70 +1,3 @@
-// // Soal - 01
-
-const person = {
-    name: "person A",
-    age: 100,
-    favDrinks: [
-      "coffee",
-      "jamu temulawak",
-      "tea"
-    ],
-    greeting: function(name) {
-      console.log("hello world") 
-    }
-  }
-  
-/// EDIT HERE
-person.name = "Rani"  // merubah field name
-person.favDrinks[1] = "tap water" // merubah field fafDrinks
-// merubah fungsi greeting
-person.greeting = function(name) {
-    return `Hello, ${name}` 
-}
-/// STOP
-
-console.log(person.name);
-console.log(person.age);
-console.log(person.favDrinks);
-console.log(person.greeting("John Watson"));
-  
-// Soal - 02
-function getObjectValue(obj, path) {
-    const paths = path.split('.')  // variabel penampung untuk mencari field yang dituju
-    // melakukan pengecekan apakah field yang dituju tersedia atau tidak
-    for (let i = 0; i < paths.length; i++) {
-      if (obj[paths[i]] == undefined) {
-        return null;
-      } else {
-        obj = obj[paths[i]];
-      }
-    }
-    return obj;
-}
-
-const milkBasedCoffee = {
-  name: "latte",
-  ingredients: {
-    espresso: {
-      origin: "lampung",
-      roastProfile: "medium to dark",
-      ratio: 1
-    },
-    milk: {
-      brand: "susu murni",
-      isVegan: false,
-      ratio: 5
-    }
-  },
-}
-
-const espresso = getObjectValue(milkBasedCoffee, "ingredients.espresso.origin");
-const coffeeBrand = getObjectValue(milkBasedCoffee, "ingredients.espresso.brand");
-const isMilkVegan = getObjectValue(milkBasedCoffee, "ingredients.milk.isVegan");
-
-console.log(espresso);
-console.log(coffeeBrand);
-console.log(isMilkVegan);
-
 // soal-03
 
 // dibawah ini merupakan history transasksi yang telah kalian lakukan
@@ -125,4 +58,3 @@ const items = [
 
 
 console.log(calculateIncome(items))
-  

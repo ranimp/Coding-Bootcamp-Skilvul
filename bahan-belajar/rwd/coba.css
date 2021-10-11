@@ -1,0 +1,34 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.logo {
+    background-color: beige;
+}
+
+.logo img {
+    width: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    display:block;
+}
+
+.card {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.carousel {
+    margin-top: 5%;
+}
+
+.text-carousel {
+    margin-right: 20%;
+    margin-top: 20%;
+}
+
+.text-gambar {
+    margin-left: 20%;
+    margin-top: 10%;
+}
