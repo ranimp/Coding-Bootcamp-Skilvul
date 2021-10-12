@@ -1,0 +1,27 @@
+1. Apa itu CSS Framework?
+CSS framework adalah kerangka kerja yang fungsinya untuk memudahkan Anda ketika mendesain website atau aplikasi, tepatnya di bagian layout dan tema. CSS framework berisi kumpulan kode CSS yang sudah siap pakai.
+2. Apakah bootstrap satu-satunya CSS Framework yang dapat kita gunakan?
+Tidak
+3. Sebutkan beberapa CSS Framework selain Bootstrap
+Foundation, Bulma, Semantic UI, UIKit, Materialize CSS, Milligram, PureCSS, Skeleton, Tailwind
+4. Bagaimana tata cara penggunaan Bootstrap?
+Ada 2 cara yaitu secara offline dan secara online
+SECARA OFFLINE
+    1. Download terlebih dahulu file bootstrap melalui laman resminya. Klik disini untuk mendownload file Bootstrap. Lalu kemudian klik kanan pada file tersebut untuk mengekstraknya. Selanjutnya klik Extract Here.
+    2. Download terlebih dahulu file bootstrap melalui laman resminya. Klik disini untuk mendownload file Bootstrap. Lalu kemudian klik kanan pada file tersebut untuk mengekstraknya. Selanjutnya klik Extract Here.
+    3. Kemudian klik menu File yang ada di bagian toolbar aplikasi Sublime. Lalu klik menu New File.
+    4. Selanjutnya simpanlah file tersebut dengan cara klik menu File lalu pilih menu Save.
+    5. Simpanlah file tersebut didalam folder bootstrap. Kemudian berikan nama file index.html. Pastikan bahwa Anda harus memberikan ekstensinya menjadi HTML. Lalu klik tombol Save.
+    6. Lalu ketikkan script seperti yang ditunjukkan pada gambar dibawah ini.
+    <link href=”css/bootstrap.min.css” rel=”stylesheet”>
+    <script src=”js/bootstrap.bundle.min.js”></script>
+    <script type=”js/bootstrap.min.js”> </script>
+    7. Dan sekarang Anda dapat dengan bebas untuk memberikan style pada komponen yang ada didalam file HTML.
+    8. Cobalah untuk menampilkan file index tersebut di Web browser dan lihat hasilnya.
+SECARA ONLINE
+    1. Masuklah ke laman resmi Bootstrap lalu klik menu Introduction yang terletak pada sisi sebelah kiri website.
+    2. Lalu lihatlah pada bagian Starter Template. Klik button Copy untuk menyalin script.
+    3. Buatlah file baru yang dinamakan dengan index.html dan Paste script yang kita copy tadi kedalam file Index.html.
+    4. Nah, yang ditunjukkan pada kotak merah tersebut merupakan script untuk menginstall Bootstrap secara online.
+    5. Dan sekarang Anda dapat dengan bebas untuk memberikan style pada komponen yang ada didalam file HTML.
+    6. Cobalah untuk menampilkan file index tersebut di Web browser dan lihat hasilnya.
