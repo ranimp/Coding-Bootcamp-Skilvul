@@ -6,8 +6,8 @@ export default class MovieCard extends Component {
       return (
         <div className ="row" id="daftar-anime">
           {data.map((movie, mal_id) =>
-          <div className ="col-lg-3 col-md-4 col-sm-6">
-            <div className="card" key={mal_id}>
+          <div className ="col-lg-3 col-md-4 col-sm-6" key={mal_id}>
+            <div className="card">
               <img
                 src={movie.image_url}
                 className="card-img-top"
@@ -16,7 +16,7 @@ export default class MovieCard extends Component {
               <div className="card-body">
                 <h5 className="card-title">{movie.title}</h5>
                 <h6 className="card-subtitle mb-2">
-                  <span className={`badge bg-danger`}>{movie.type}</span>
+                  <span className={`badge ${movie.type === "TV" ? 'bg-danger' : 'bg-success'}`}>{movie.type}</span>
                 </h6>
                 <p className="card-text">
                   Some quick example text to build on the card title and make

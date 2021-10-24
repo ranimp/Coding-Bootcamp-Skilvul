@@ -1,7 +1,4 @@
 import { Component } from "react";
-import data from "./dummy-data";
-import animeList from "./dummy-data";
-import MovieCard from "./MovieCard";
 
 class App extends Component {
   constructor(props){
@@ -19,7 +16,7 @@ class App extends Component {
     .then((response) => response.json())
     .then(data => {
       this.setState({
-        movieList: data,
+        movieList: data.top || [],
         isLoading : false,
       })
     })
@@ -52,9 +49,8 @@ class App extends Component {
         <div className="container my-5">
           <h1 className="text-center">Anime List</h1>
           <div className="container my-5">  
-           <MovieCard movie = {data}></MovieCard>
-            {/* <div className ="row" id="daftar-anime">
-            {movieList.map((movie, mal_id) =>
+            <div className ="row" id="daftar-anime">
+            {this.state.movieList.map((movie, mal_id) =>
               <div className ="col-lg-3 col-md-4 col-sm-6">
                 <div className="card" key={mal_id} >
                   <img
@@ -65,7 +61,7 @@ class App extends Component {
                   <div className="card-body">
                     <h5 className="card-title">{movie.title}</h5>
                     <h6 className="card-subtitle mb-2">
-                      <span className={`badge bg-danger`}>{movie.type}</span>
+                      <span className={`badge ${movie.type === "TV" ? 'bg-danger' : 'bg-success'}`}>{movie.type}</span>
                     </h6>
                     <p className="card-text">
                       Some quick example text to build on the card title and make
@@ -82,7 +78,7 @@ class App extends Component {
                   </div>
                 </div>  
               </div>)}
-            </div> */}
+            </div>
           </div>
         </div>
       )}}
