@@ -6,7 +6,7 @@ export default class MovieCard extends Component {
       return (
         <div className ="row" id="daftar-anime">
           {data.map((movie, mal_id) =>
-          <div className="col-lg-3 col-md-4 col-sm-6">
+          <div className ="col-lg-3 col-md-4 col-sm-6">
             <div className="card" key={mal_id}>
               <img
                 src={movie.image_url}
