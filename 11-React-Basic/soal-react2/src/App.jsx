@@ -15,22 +15,20 @@ class App extends Component {
     .then((response) => response.json())
     .then(data => {
       this.setState({
-        movieList: data.top || [],
-        isLoading : false,
+        movieList: data.top,
       })
     })
   }
 
   componentDidMount(){
-    this.fetchMovieList()
-    setTimeout(() => {
-      this.setState ({isLoading : true})
-    },2000) 
+    this.fetchMovieList() 
   }
   
   componentDidUpdate(prevProps) {
-    if (this.props.movieList !== prevProps.movieList) {
-      this.fetchMovieList(this.props.movieList);
+    if (this.state.movieList !== prevProps.movieList) {
+      setTimeout(() => {
+        this.setState ({isLoading : true})
+      },1000)
     }
   }
 
