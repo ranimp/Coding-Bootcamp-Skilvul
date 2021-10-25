@@ -7,7 +7,6 @@ class App extends Component {
       movieList:[],
       isLoading: false
     }
-    this.fetchMovieList = this.fetchMovieList.bind(this)
   }
 
   fetchMovieList = () => {
@@ -26,7 +25,7 @@ class App extends Component {
     this.fetchMovieList()
     setTimeout(() => {
       this.setState ({isLoading : true})
-    },1000) 
+    },2000) 
   }
   
   componentDidUpdate(prevProps) {
@@ -50,7 +49,7 @@ class App extends Component {
           <h1 className="text-center">Anime List</h1>
           <div className="container my-5">  
             <div className ="row" id="daftar-anime">
-            {this.state.movieList.map((movie, mal_id) =>
+            {movieList.map((movie, mal_id) =>
               <div className ="col-lg-3 col-md-4 col-sm-6">
                 <div className="card" key={mal_id} >
                   <img
