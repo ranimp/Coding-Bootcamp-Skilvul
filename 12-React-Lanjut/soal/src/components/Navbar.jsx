@@ -40,12 +40,12 @@ const Navbar = ({ totalItem = 0 }) => {
     );
   };
 
-  Navbar.PropTypes = {
-    toalItem = PropTypes.number,
+  Navbar.propTypes = {
+    purchasedItem : PropTypes.number
   }
 
   Navbar.defaultProps = {
-    totalItem = 0
+    purchasedItem : 0
   }
 
   export default Navbar;

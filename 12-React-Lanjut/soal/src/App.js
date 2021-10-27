@@ -11,15 +11,61 @@ export default function App() {
   const [cart, setCart] = useState([]);
 
   const addToCart = (id) => {
-    if (id == true) {}
-    else {
-      amount++
+    const menu = menus.find((item) => item.id === id);
+    const cartById = cart.find((item) => item.id === id);
+    if (!cartById) {
+      setCart([
+        ...cart,
+        {
+          id,
+          name: menu.name,
+          price: menu.price,
+          amount: 1
+        }
+      ]);
+    } else {
+      increaseCartAmount(id);
     }
   };
 
-  const decreaseCartAmount = (id) => {};
+  const decreaseCartAmount = (id) => {
+    setCart((currentAmounts) => {
+      const updatedAmount = currentAmounts.map((item) => {
+        if (item.id === id) {
+          item.amount -= 1;
+          return item;
+        }
+        return item;
+      });
+      return updatedAmount;
+    });
 
-  const increaseCartAmount = (id) => {};
+    setPurchasedItem((currentPurchasedItem) => {
+      return currentPurchasedItem - 1;
+    });
+  }
+
+  const increaseCartAmount = (id) => {
+    setCart((currentAmounts) => {
+      const updatedAmount = currentAmounts.map((item) => {
+        if (item.id === id) {
+          item.amount += 1;
+          return item;
+        }
+        return item;
+      });
+      return updatedAmount;
+    });
+
+    setPurchasedItem((currentPurchasedItem) => {
+      return currentPurchasedItem + 1;
+    });
+  };
+
+  useEffect(() => {
+    setPurchasedItem(cart.reduce((acc, curr) => curr.amount + acc, 0));
+    setTotal(cart.reduce((acc, curr) => curr.amount * curr.price + acc, 0));
+  });
 
   return (
     <div className="bg-secondary">
