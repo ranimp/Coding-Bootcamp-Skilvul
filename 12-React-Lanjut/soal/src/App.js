@@ -30,6 +30,7 @@ export default function App() {
 
   const decreaseCartAmount = (id) => {
     setCart((currentAmounts) => {
+      const indexOfCartById = cart.findIndex((o) => o.id === id); 
       const updatedAmount = currentAmounts.map((item) => {
         if (item.id === id) {
           item.amount -= 1;
@@ -37,6 +38,9 @@ export default function App() {
         }
         return item;
       });
+      if (updatedAmount[indexOfCartById].amount <= 0) {
+        setCart(cart.filter((o) => o.id !== id));
+      }
       return updatedAmount;
     });
 
