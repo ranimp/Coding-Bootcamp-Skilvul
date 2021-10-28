@@ -1,6 +1,8 @@
 # IMPORTANT NOTES
 
-Soal nomor 1 dan nomor 2 digabung jadi satu project "soal"
+Soal nomor 1 dan nomor 2 digabung jadi satu project ini
+- untuk soal nomor 1 hanya mengubah isi folder component
+- untuk soal nomor 2 hanya ada di app.js
 
 # Getting Started with Create React App
 
