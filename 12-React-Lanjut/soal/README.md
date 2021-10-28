@@ -1,3 +1,7 @@
+# IMPORTANT NOTES
+
+Soal nomor 1 dan nomor 2 digabung jadi satu project "soal"
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
