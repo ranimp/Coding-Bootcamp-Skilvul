@@ -5,8 +5,8 @@ import data from "../dummy-data";
 const Movie = () => {
   // Variable berikut akan menampung data movie yang akan kita tampilkan
   let { id } = useParams();
-  const movie = data.find(e => e.mal_id == id);
-
+  const movie = data.find(movie => movie.mal_id == id);
+  
   if(!movie){
     return(
       <Switch>
@@ -16,7 +16,7 @@ const Movie = () => {
       </Switch>
     )
   }
-
+  
   return (
     <div className="row my-5">   
       <div className="card mb-3 p-0">
