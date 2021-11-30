@@ -2,38 +2,38 @@
 SHOW DATABASES;
 
 -- create db
-CREATE DATABASE bookstore;
+CREATE DATABASE book_store;
 
 -- use db
-USE bookstore;
+USE book_store;
 
 -- show tables
 SHOW TABLES;
 
 -- create table
-CREATE TABLE `books` (
-    `id` INT AUTO_INCREMENT PRIMARY KEY,
-    `author1` VARCHAR(100) NOT NULL,
-    `author2` VARCHAR(100),
-    `author3` VARCHAR(100),
-    `title` VARCHAR(100),
-    `description` TEXT,
-    `place_sell` CHAR(3),
-    `stock` INT DEFAULT(0),
-    `creation_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+CREATE TABLE books (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    author1 VARCHAR(100) NOT NULL,
+    author2 VARCHAR(100),
+    author3 VARCHAR(100),
+    title VARCHAR(100),
+    description TEXT,
+    place_sell CHAR(3),
+    stock INT DEFAULT(0),
+    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 -- update books
-ALTER TABLE `books`
-ADD `price` INT,
-    status ENUM('available', 'out of stock', 'limited');
+ALTER TABLE books
+ADD (price INT DEFAULT(0),
+    status ENUM('available', 'out of stock', 'limited'));
 
-ALTER TABLE `books`
-DROP COLUMN `place_sell`;
+ALTER TABLE books
+DROP COLUMN place_sell;
 
 -- insert data
-INSERT INTO `books`
-    (`id`, `author1`, `author2`, `author3`, `title`, `description`, `creation_date`, `price`, `status`, `stock`)
+INSERT INTO books
+    (id, author1, author2, author3, title, description, creation_date, price, status, stock)
 VALUES
     (1, 'siti', 'rina', 'bima', 'judul 1', 'ini deskripsi 1', '2021-11-12 12:12:12', 50000, 'available', 20),
     (2, 'vita', 'sakti', '', 'judul 2', 'ini deskripsi 2', '2021-11-12 12:12:12', 50000, 'available', 10),
@@ -41,32 +41,35 @@ VALUES
 ;
 
 -- select semua row
-SELECT * FROM `books`;
+SELECT * FROM books;
 
 -- select alias
-SELECT id AS ID, author1 AS A1, author2 AS A2, author3 AS A3 FROM `books`;
+SELECT id AS ID, author1 AS A1, author2 AS A2, author3 AS A3 FROM books;
 
 -- select where id
-SELECT * FROM `books` WHERE id = 1;
+SELECT * FROM books WHERE id = 1;
 
 -- select where AND
-SELECT * FROM `books` WHERE id = 1 AND author1 = 'siti';
+SELECT * FROM books WHERE id = 1 AND author1 = 'siti';
 
 -- select where OR
-SELECT * FROM `books` WHERE id = 1 OR author1 = 'nara';
+SELECT * FROM books WHERE id = 1 OR author1 = 'nara';
 
 -- select where NOT
-SELECT * FROM `books` WHERE NOT id = 1;
+SELECT * FROM books WHERE NOT id = 1;
 
 -- select ASC id
-SELECT * FROM `books` ORDER BY id ASC;
+SELECT * FROM books ORDER BY id ASC;
 
 -- select limit 2
-SELECT * FROM `books` LIMIT 2;
+SELECT * FROM books LIMIT 2;
 
 -- update column author1 & price
-UPDATE `books` SET author1 = 'pratama', title = 'buku 2' WHERE id = 2;
+UPDATE books SET author1 = 'pratama', title = 'buku 2' WHERE id = 2;
 
 -- delete 1 row
-DELETE from `books` WHERE id = 3;
+DELETE FROM books WHERE id = 3;
+
+-- check update and delete 
+SELECT * FROM books;
 
