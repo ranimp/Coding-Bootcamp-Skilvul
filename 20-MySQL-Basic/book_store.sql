@@ -65,7 +65,7 @@ SELECT * FROM books ORDER BY id ASC;
 SELECT * FROM books LIMIT 2;
 
 -- update column author1 & price
-UPDATE books SET author1 = 'pratama', title = 'buku 2' WHERE id = 2;
+UPDATE books SET author1 = 'pratama', price = 49000 WHERE id = 2;
 
 -- delete 1 row
 DELETE FROM books WHERE id = 3;
