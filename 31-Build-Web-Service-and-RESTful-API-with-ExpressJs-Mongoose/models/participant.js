@@ -20,7 +20,7 @@ const participantSchema = new mongoose.Schema({
         max: 50
     },
     phone: {
-        type: Number,
+        type: String,
         max: 13
     },
     courses: [
